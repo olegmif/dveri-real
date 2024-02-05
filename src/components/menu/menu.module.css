@@ -1,0 +1,18 @@
+.menu {
+}
+
+.menuBar > .items {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.menuBarItem {
+  position: relative;
+}
+
+.menuBarItem > .items {
+  position: absolute;
+  left: 0;
+  top: 0;
+}

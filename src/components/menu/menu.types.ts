@@ -1,5 +1,6 @@
 export type MenuItem = {
   id: string;
+  className?: string;
   title?: string;
   path?: string;
   items?: MenuItems;

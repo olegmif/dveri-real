@@ -2,9 +2,11 @@ import { MenuItem } from "@components/menu/menu.types";
 
 export const MENU: MenuItem = {
     id: "0",
+    className: "menuBar",
     items: [
         {
             id: "1",
+            className: "menuBarItem",
             title: "Каталог дверей",
             items: [
                 {
@@ -843,6 +845,7 @@ export const MENU: MenuItem = {
         },
         {
             id: "2",
+            className: "menuBarItem",
             title: "Покупателям",
             items: [
                 { id: "2-1", title: "Подбор дверей", path: "/" },
@@ -860,6 +863,7 @@ export const MENU: MenuItem = {
         },
         {
             id: "3",
+            className: "menuBarItem",
             title: "Услуги",
             items: [
                 { id: "3-1", title: "Изготовление входных дверей", path: "/" },
@@ -869,6 +873,7 @@ export const MENU: MenuItem = {
         },
         {
             id: "4",
+            className: "menuBarItem",
             title: "Металлоконструкции",
             items: [
                 { id: "4-1", title: "Сварные решетки на окна", path: "/" },
@@ -878,6 +883,7 @@ export const MENU: MenuItem = {
         },
         {
             id: "5",
+            className: "menuBarItem",
             title: "Компания",
             items: [
                 { id: "5-1", title: "Отзывы клиентов", path: "/" },
@@ -889,16 +895,19 @@ export const MENU: MenuItem = {
         },
         {
             id: "6",
+            className: "menuBarItem",
             title: "Фото работ",
             path: "/",
         },
         {
             id: "7",
+            className: "menuBarItem",
             title: "Видеогалерея",
             path: "/",
         },
         {
             id: "8",
+            className: "menuBarItem",
             title: "Контакты",
             path: "/",
         },
