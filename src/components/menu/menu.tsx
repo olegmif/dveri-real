@@ -1,9 +1,10 @@
 "use client"
 
 import {FC, useState} from "react";
-import { MenuProps } from "./menu.types";
+import cn from "classnames";
 import Link from "next/link";
-import styles from "./menu.module.css";
+import { MenuProps } from "./menu.types";
+import styles from "./menu.module.scss";
 
 const Menu: FC<MenuProps> = ({ item, level = 0 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -20,7 +21,7 @@ const Menu: FC<MenuProps> = ({ item, level = 0 }) => {
     >
       {title()}
       {item.items && (
-        <div className={`${styles.menuItems} ${styles["menuItemsLevel" + level]} ${expanded ? styles.expanded : ''}`}>
+        <div className={cn(styles.menuItems, styles["menuItemsLevel" + level], {[styles.expanded]: expanded})}>
           {item.items.map((item) => (
             <Menu key={item.id} item={item} level={level + 1}/>
           ))}

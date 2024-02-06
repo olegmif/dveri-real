@@ -1,0 +1,24 @@
+:root {
+  --xs: 0px;
+  --sm: 600px;
+  --md: 900px;
+  --lg: 1200px;
+  --xl: 1536px;
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
