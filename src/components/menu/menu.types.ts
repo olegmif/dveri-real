@@ -1,6 +1,5 @@
 export type MenuItem = {
   id: string;
-  className?: string;
   title?: string;
   path?: string;
   items?: MenuItems;
@@ -14,5 +13,6 @@ export type CatalogMenuItem = MenuItem & {
 export type MenuItems = Array<MenuItem | CatalogMenuItem>;
 
 export interface MenuProps {
+  level?: number;
   item: MenuItem | CatalogMenuItem;
 }

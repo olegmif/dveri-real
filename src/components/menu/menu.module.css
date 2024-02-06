@@ -1,18 +1,34 @@
-.menu {
+.menuItems {
+    display: none;
 }
 
-.menuBar > .items {
-  display: flex;
-  gap: 16px;
-  align-items: center;
+.menuItems .expanded {
+    display: flex;
+    flex-direction: column;
 }
 
-.menuBarItem {
-  position: relative;
+.menuItemsLevel0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.menuBarItem > .items {
-  position: absolute;
-  left: 0;
-  top: 0;
+.menuItemLevel1 {
+    position: relative;
 }
+
+.menuItemsLevel1 {
+    position: static;
+}
+
+@media screen and (min-width: 900px) {
+    .menuItemsLevel0 {
+        flex-direction: row;
+    }
+
+    .menuItemsLevel1 {
+        position: absolute;
+    }
+}
+
