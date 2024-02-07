@@ -1,11 +1,12 @@
 import { MENU } from "@/data/menu.const";
 import Menu from "@components/menu/menu";
+import Container from "@components/container/container";
 
 const Header = () => {
     return (
-        <div>
+        <Container>
             <Menu item={MENU} />
-        </div>
+        </Container>
     );
 };
 

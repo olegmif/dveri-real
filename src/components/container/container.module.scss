@@ -1,0 +1,30 @@
+@import "@app/variables";
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $sm)  {
+  .container {
+    width: 540px;
+  }
+}
+
+@media screen and (min-width: $md)  {
+  .container {
+    width: 720px;
+  }
+}
+
+@media screen and (min-width: $lg)  {
+  .container {
+    width: 960px;
+  }
+}
+
+@media screen and (min-width: $xl)  {
+  .container {
+    width: 1140px;
+  }
+}
