@@ -12,25 +12,31 @@ const lato = Montserrat({
   subsets: ['cyrillic']
 })
 
-const Menu: FC<MenuProps> = ({ item, level = 0 }) => {
-  const [expanded, setExpanded] = useState<boolean>(false);
+const Menu: FC<MenuProps> = ({ item, level = 0, onClick , expanded = false}) => {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const handleExpand = (id: string): void => {
+      setExpandedId(id === expandedId ? null : id);
+  }
+
   const title = () => {
-    const classes = cn(styles.title, lato.className);
     if (!item.title) return null;
-    if (item.items) return <button className={classes} onClick={() => setExpanded((prev => !prev))}>{item.title}</button>;
-    if (item.path) return <Link className={classes} href={item.path}>{item.title}</Link>;
-    return <span className={classes}>{item.title}</span>;
+
+    const classes = cn(styles.title, lato.className);
+
+    return item.path ? <Link className={classes} href={item.path}>{item.title}</Link> :
+      <button className={classes} onClick={() => onClick && onClick(item.id)}>{item.title}</button>;
   };
 
   return (
     <div
-      className={`${styles["menuItemLevel" + level]}`}
+      className={`${styles.item} ${styles["level" + level]}`}
     >
       {title()}
       {item.items && (
-        <div className={cn(styles.menuItems, styles["menuItemsLevel" + level], {[styles.expanded]: expanded})}>
+        <div className={cn(styles.items, styles["level" + level], {[styles.expanded]: expanded})}>
           {item.items.map((item) => (
-            <Menu key={item.id} item={item} level={level + 1}/>
+            <Menu key={item.id} item={item} level={level + 1} onClick={handleExpand} expanded={item.id === expandedId}/>
           ))}
         </div>
       )}

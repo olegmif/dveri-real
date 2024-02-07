@@ -1,3 +1,5 @@
+import {MouseEventHandler} from "react";
+
 export type MenuItem = {
   id: string;
   title?: string;
@@ -15,4 +17,6 @@ export type MenuItems = Array<MenuItem | CatalogMenuItem>;
 export interface MenuProps {
   level?: number;
   item: MenuItem | CatalogMenuItem;
+  onClick?: (id: string) => void;
+  expanded?: boolean;
 }

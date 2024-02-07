@@ -1,44 +1,62 @@
-@import "@/app/variables.scss";
+@import "@app/variables.scss";
 
 .title {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.menuItems {
-    display: none;
-}
 
-.menuItems .expanded {
+.items {
+  display: none;
+
+  &.level0 {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.menuItemsLevel0 {
+  .expanded {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+  }
 }
 
-.menuItemLevel1 {
-    position: relative;
-}
-
-.menuItemsLevel1 {
+.item {
+  &.level1, .items {
     position: static;
+  }
 }
+
 
 @media screen and (min-width: $md) {
-    .menuItemsLevel0 {
-        flex-direction: row;
+  .items.level0 {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .items.level1 {
+    position: absolute;
+  }
+
+  .item.level1 {
+    position: relative;
+    /* при наведении на элемент меню первого уровня его дочерние становятся видимыми */
+    &:hover {
+      & > .items {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
-    .menuItemsLevel1 {
-        position: absolute;
+    /* баз наведения на элемент первого уровня его дочерние будут скрыты даже с установленным классом .expanded */
+    &:not(:hover) > .items {
+      display: none;
     }
+  }
+
 }
+
 
