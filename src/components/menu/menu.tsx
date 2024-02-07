@@ -6,9 +6,9 @@ import Link from "next/link";
 import { Montserrat } from "next/font/google";
 import { MenuProps } from "./menu.types";
 import styles from "./menu.module.scss";
+import Card from "@components/card/card";
 
-const lato = Montserrat({
-  weight: "600",
+const montserrat = Montserrat({
   subsets: ['cyrillic']
 })
 
@@ -19,26 +19,28 @@ const Menu: FC<MenuProps> = ({ item, level = 0, onClick , expanded = false}) => 
       setExpandedId(id === expandedId ? null : id);
   }
 
-  const title = () => {
+  const renderTitle = () => {
     if (!item.title) return null;
 
-    const classes = cn(styles.title, lato.className);
+    const classes = cn(styles.title, montserrat.className);
 
     return item.path ? <Link className={classes} href={item.path}>{item.title}</Link> :
       <button className={classes} onClick={() => onClick && onClick(item.id)}>{item.title}</button>;
   };
 
+  const renderItems = () => item.items?.map((item) => (
+      <Menu key={item.id} item={item} level={level + 1} onClick={handleExpand} expanded={item.id === expandedId}/>
+  )) || null;
+
+  const itemsClasses = cn(styles.items, styles["level" + level], {[styles.expanded]: expanded});
+
   return (
     <div
       className={`${styles.item} ${styles["level" + level]}`}
     >
-      {title()}
+      {renderTitle()}
       {item.items && (
-        <div className={cn(styles.items, styles["level" + level], {[styles.expanded]: expanded})}>
-          {item.items.map((item) => (
-            <Menu key={item.id} item={item} level={level + 1} onClick={handleExpand} expanded={item.id === expandedId}/>
-          ))}
-        </div>
+        level !== 2 ? <Card className={itemsClasses}>{renderItems()}</Card> : <div className={itemsClasses}>{renderItems()}</div>
       )}
     </div>
   );

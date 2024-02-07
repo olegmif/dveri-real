@@ -1,0 +1,7 @@
+@import "@app/variables";
+
+.card {
+  box-shadow: 0 2px 8px rgb(18 17 36 / 4%), 0 4px 32px rgb(18 17 36 / 8%);
+  border-radius: 8px;
+  background-color: $bg-main;
+}

@@ -1,13 +1,25 @@
 @import "@app/variables.scss";
 
 .title {
+  display: flex;
+  align-items: center;
   background-color: transparent;
   border: none;
   outline: none;
   font-size: 14px;
   cursor: pointer;
+  padding: 8px 16px;
+  font-weight: 600;
 }
 
+.level1 > .title {
+  height: 60px;
+  padding: 0 16px;
+}
+
+.level3 > .title {
+  font-weight: 400;
+}
 
 .items {
   display: none;
@@ -23,28 +35,42 @@
   }
 }
 
+/*
 .item {
   &.level1, .items {
     position: static;
   }
 }
+ */
 
 
 @media screen and (min-width: $md) {
-  .items.level0 {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  .items {
+    white-space: nowrap;
+
+    &.level0 {
+      flex-direction: row;
+      align-items: center;
+      //justify-content: space-between;
+    }
+
+    &.level1 {
+      position: absolute;
+      z-index: 100;
+      min-width: 100%;
+    }
   }
 
-  .items.level1 {
-    position: absolute;
-  }
 
   .item.level1 {
     position: relative;
     /* при наведении на элемент меню первого уровня его дочерние становятся видимыми */
     &:hover {
+      & > .title {
+        background-color: $bg-contrast;
+        color: $text-contrast;
+      }
+
       & > .items {
         display: flex;
         flex-direction: column;
@@ -54,6 +80,10 @@
     /* баз наведения на элемент первого уровня его дочерние будут скрыты даже с установленным классом .expanded */
     &:not(:hover) > .items {
       display: none;
+    }
+
+    .item.level2 > .title:hover {
+      color: $bg-contrast;
     }
   }
 
