@@ -1,3 +1,13 @@
+@import "@app/variables";
+
 .menuBar {
   padding: 0 16px;
+}
+
+.contentBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  border-bottom: 1px solid $separator;
 }
