@@ -40,7 +40,7 @@ const Menu: FC<MenuProps> = ({ item, level = 0, onClick , expanded = false}) => 
     >
       {renderTitle()}
       {item.items && (
-        level !== 2 ? <Card className={itemsClasses}>{renderItems()}</Card> : <div className={itemsClasses}>{renderItems()}</div>
+        level === 1 ? <Card className={itemsClasses}>{renderItems()}</Card> : <div className={itemsClasses}>{renderItems()}</div>
       )}
     </div>
   );
