@@ -8,13 +8,13 @@ const montserrat = Montserrat({
     subsets: ['cyrillic']
 })
 
-const Button: FC<ButtonProps> = ({children, className, type = "secondary", shape = "round", ...rest}) => {
+const Button: FC<ButtonProps> = ({children, className = '', type = "secondary", shape = "round", ...rest}) => {
     return <button {...rest} className={cn(styles.button, montserrat.className, {
         [styles.rounded]: shape === "rounded",
         [styles.round]: shape === "round",
         [styles.primary]: type === "primary",
         [styles.secondary]: type === "secondary",
-    }, className,)}>{children}</button>
+    }, className)}>{children}</button>
 }
 
 export default Button;
