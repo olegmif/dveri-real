@@ -14,6 +14,7 @@ const Button: FC<ButtonProps> = ({children, className = '', type = "secondary", 
         [styles.round]: shape === "round",
         [styles.primary]: type === "primary",
         [styles.secondary]: type === "secondary",
+        [styles.transparent]: type === "transparent",
     }, className)}>{children}</button>
 }
 

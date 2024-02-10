@@ -15,6 +15,7 @@
   color: $text-contrast;
   font-weight: 800;
   padding: 0 32px;
+  box-sizing: border-box;
 
   svg {
     height: 36px;
@@ -32,6 +33,16 @@
 .secondary {
   background-color: #0d50cc;
   box-shadow: 0 5px 9px 0 rgba(57, 66, 160, .25);
+}
+
+.transparent {
+  background-color: transparent;
+  //border: 1px solid black;
+
+  svg {
+    fill: $text-main;
+    stroke: $text-main;
+  }
 }
 
 .round {

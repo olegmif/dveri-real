@@ -6,8 +6,8 @@ export type Product = {
     finishing: string;
     bestseller?: boolean, // хит продаж
     price: number,
-    oldPrice: number,
-    discount: number,
+    oldPrice?: number,
+    discount?: number,
     refund: number,
     sold?: number // продано N раз
 }
