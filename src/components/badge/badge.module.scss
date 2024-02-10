@@ -1,0 +1,10 @@
+@import "@app/variables";
+
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 10px;
+  color: $text-contrast;
+}
