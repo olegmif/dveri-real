@@ -7,6 +7,17 @@
   gap: 16px;
   align-items: flex-start;
   width: 329px;
+  position: relative;
+  box-sizing: border-box;
+
+  &:hover {
+    .actions {
+      display: flex;
+    }
+    .detailsButton {
+      display: flex;
+    }
+  }
 }
 
 
@@ -18,7 +29,7 @@
 
 .title {
   font-size: 14px;
-  line-height: 16px;
+  line-height: 24px;
   font-weight: 700;
 }
 
@@ -62,7 +73,8 @@
 .details {
   font-size: 14px;
   line-height: 24px;
-  color: $text-secondary
+  color: $text-secondary;
+  font-weight: 600;
 }
 
 .image {
@@ -82,9 +94,17 @@
 }
 
 .actions {
-  display: flex;
+  display: none;
   gap: 16px;
   align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: -58px;
+  width: 100%;
+  padding: 24px 16px 16px 16px;
+  z-index: 50;
+  box-shadow: 0 15px 15px 0 rgba(143, 146, 153, .2) !important;
+  border-radius: 0 0 8px 8px;
 }
 
 .bottomBadge {
@@ -97,4 +117,12 @@
   padding: 0 !important;
   width: 32px;
   height: 32px;
+}
+
+.detailsButton {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

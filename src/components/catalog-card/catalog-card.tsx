@@ -22,7 +22,7 @@ const CatalogCard: FC<CatalogCardProps> = ({product}) => {
     const discountBadge = product.discount ? <Badge text={`Скидика`} color="#d02129"/> : null;
 
     return (
-        <Card className={styles.catalogCard}>
+        <Card className={cn(montserrat.className, styles.catalogCard)}>
             <div className={styles.image}>
                 <Image src={image} width={265} height={265} alt={"door photo"}/>
                 <div className={styles.topBadges}>
@@ -31,27 +31,29 @@ const CatalogCard: FC<CatalogCardProps> = ({product}) => {
                     {discountBadge}
                 </div>
                 {product.refund && <div className={styles.bottomBadge}>
-                    <Badge text={product.refund} color="#ea0e18" />
+                    <Badge text={product.refund} color="#ea0e18"/>
                 </div>}
+                <Button className={styles.detailsButton} shape="round" type="primary">Подробнее</Button>
             </div>
-            <div className={cn(montserrat.className, styles.features)}>
+            <div className={styles.features}>
                 <span className={styles.title}>{title}</span>
                 <div className={styles.detailsWrapper}>
                     <span className={styles.details}>{`Размер: ${size}`}</span>
                     <span className={styles.details}>{`Отделка: ${finishing}`}</span>
                 </div>
                 <div className={cn(styles.hasDiscount, styles.priceWrapper)}>
-                    <span className={styles.price}>{price}</span>
-                    {oldPrice && <span className={styles.oldPrice}>{oldPrice}</span>}
-                    {discount && <Badge text={discount} color={"#ea0e18"}/>}
+                    <span className={styles.price}>{`${price} ₽`}</span>
+                    {oldPrice && <span className={styles.oldPrice}>{`${oldPrice} ₽`}</span>}
+                    {discount && <Badge text={`${discount}%`} color={"#ea0e18"}/>}
                 </div>
             </div>
-            <div className={styles.actions}>
+            <Card className={styles.actions}>
                 <Button shape="round" type="primary">Купить в 1 клик</Button>
-                <Button className={styles.compareButton} shape="rounded" type="transparent"><CompareIcon /></Button>
-                <Button className={styles.favoritesButton} shape="rounded" type="transparent"><HeartIcon /></Button>
-            </div>
+                <Button className={styles.compareButton} shape="rounded" type="transparent"><CompareIcon/></Button>
+                <Button className={styles.favoritesButton} shape="rounded" type="transparent"><HeartIcon/></Button>
+            </Card>
         </Card>
+
     )
 }
 
