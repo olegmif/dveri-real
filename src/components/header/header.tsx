@@ -15,7 +15,7 @@ const montserrat = Montserrat({
     subsets: ['cyrillic']
 })
 
-const Header: FC<HeaderProps> = () => {
+const Header: FC = () => {
     return (
         <Container>
             <Card>
