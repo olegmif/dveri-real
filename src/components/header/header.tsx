@@ -1,7 +1,4 @@
-import {MENU} from "@/data/menu.const";
-import Menu from "@components/menu/menu";
 import Container from "@components/container/container";
-
 import styles from "./header.module.scss";
 import Logo from "@components/logo/logo";
 import Card from "@components/card/card";
@@ -9,12 +6,16 @@ import Button from "@components/button/button";
 import ChatIcon from "@components/icons/chat";
 import {Montserrat} from "next/font/google";
 import cn from "classnames";
+import {HeaderProps} from "@components/header/header.types";
+import {FC} from "react";
+import Menu from "@components/menu/menu";
+import {MENU} from "@/data/menu.const";
 
 const montserrat = Montserrat({
     subsets: ['cyrillic']
 })
 
-const Header = () => {
+const Header: FC<HeaderProps> = () => {
     return (
         <Container>
             <Card>

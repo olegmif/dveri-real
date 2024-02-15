@@ -1,4 +1,4 @@
-import { MenuItem } from "@components/menu/menu.types";
+import {MenuItem} from "@types/menu.types";
 
 export const MENU: MenuItem = {
     id: "0",

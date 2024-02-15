@@ -1,18 +1,4 @@
-import {MouseEventHandler} from "react";
-
-export type MenuItem = {
-  id: string;
-  title?: string;
-  path?: string;
-  items?: MenuItems;
-};
-
-export type CatalogMenuItem = MenuItem & {
-  count: number;
-  minPrice: number;
-};
-
-export type MenuItems = Array<MenuItem | CatalogMenuItem>;
+import {CatalogMenuItem, MenuItem} from "@/types/menu.types";
 
 export interface MenuProps {
   level?: number;
